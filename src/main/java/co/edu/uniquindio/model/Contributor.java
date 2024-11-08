@@ -1,10 +1,18 @@
 package co.edu.uniquindio.model;
 
 public class Contributor implements Comparable<Contributor> {
-    private String nombre;
-    private String apellido;
-    private int edad;
-    private double salario;
+
+     String nombre;
+     String apellido;
+     Integer edad;
+     Double salario;
+
+    public Contributor() {
+        this.nombre = null;
+        this.apellido = null;
+        this.edad = null;
+        this.salario = null;
+    }
 
     public Contributor(String nombre, String apellido, int edad, double salario) {
         this.nombre = nombre;
