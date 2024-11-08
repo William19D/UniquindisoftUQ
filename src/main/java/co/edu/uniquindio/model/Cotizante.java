@@ -1,23 +1,67 @@
 package co.edu.uniquindio.model;
 
-public class Cotizante extends EntidadCSV {
+public class Cotizante {
+
+    String nombre;
+    String apellido;
+    Integer edad;
+    Double salario;
+
     public Cotizante() {
-        super();
+        this.nombre = null;
+        this.apellido = null;
+        this.edad = null;
+        this.salario = null;
     }
 
+    public Cotizante(String nombre, String apellido, Integer edad, Double salario) {
+        super();
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.edad = edad;
+        this.salario = salario;
+    }
+
+
     public String getNombre() {
-        return getCampos().get("nombre");
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getApellido() {
-        return getCampos().get("apellido");
+        return apellido;
     }
 
-    public int getEdad() {
-        return Integer.parseInt(getCampos().get("edad"));
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
-    public double getSalario() {
-        return Double.parseDouble(getCampos().get("salario"));
+    public Integer getEdad() {
+        return edad;
+    }
+
+    public void setEdad(Integer edad) {
+        this.edad = edad;
+    }
+
+    public Double getSalario() {
+        return salario;
+    }
+
+    public void setSalario(Double salario) {
+        this.salario = salario;
+    }
+
+    @Override
+    public String toString() {
+        return "Cotizante{" +
+                "nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", edad=" + edad +
+                ", salario=" + salario +
+                '}';
     }
 }
