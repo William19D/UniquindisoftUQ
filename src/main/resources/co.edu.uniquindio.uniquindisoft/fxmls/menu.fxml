@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="principalPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: white;" styleClass="fondo" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.uniquindisoft.controllers.MenuController">
+   <left>
+      <VBox alignment="TOP_CENTER" prefHeight="380.0" prefWidth="80.0" style="-fx-background-color: #DB1228; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 2);" stylesheets="@../styles/fondo.css" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
+         <children>
+            <SVGPath content="M28,0C12.561,0,0,12.561,0,28s12.561,28,28,28s28-12.561,28-28S43.439,0,28,0z M40,41H16c-1.104,0-2-0.896-2-2s0.896-2,2-2h24c1.104,0,2,0.896,2,2S41.104,41,40,41z M40,30H16c-1.104,0-2-0.896-2-2s0.896-2,2-2h24c1.104,0,2,0.896,2,2S41.104,30,40,30z M40,19H16c-1.104,0-2-0.896-2-2s0.896-2,2-2h24c1.104,0,2,0.896,2,2S41.104,19,40,19z" fill="WHITE" scaleX="0.9" scaleY="0.9" scaleZ="0.9">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </SVGPath>
+            <Separator opacity="0.48" prefWidth="200.0" scaleX="0.9" scaleY="0.7" style="-fx-background-color: white;">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin></Separator>
+            <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" scaleX="1.2" scaleY="1.2" scaleZ="1.2" spacing="5.0">
+               <children>
+                  <VBox fx:id="btnInventario" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" scaleZ="0.5" spacing="1.0">
+                     <children>
+                        <Label alignment="CENTER" text="Inventario" textFill="WHITE">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets top="2.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets top="3.0" />
+                     </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </VBox>
+                  <VBox fx:id="btnClientes" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" scaleZ="0.5" spacing="1.0">
+                     <children>
+                        <Label alignment="CENTER" text="Clientes" textFill="WHITE">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets top="2.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets top="3.0" />
+                     </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </VBox>
+                  <VBox fx:id="btnReparaciones" alignment="CENTER" layoutX="15.0" layoutY="74.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="1.0">
+                     <children>
+                        <Label alignment="CENTER" text="Repair" textFill="WHITE">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                           <padding>
+                              <Insets top="-3.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets top="2.0" />
+                     </padding>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </VBox>
+                  <VBox fx:id="btnDevoluciones" alignment="CENTER" layoutX="15.0" layoutY="127.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="1.0">
+                     <children>
+                        <Label alignment="CENTER" text="Returns" textFill="WHITE">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                           <padding>
+                              <Insets top="-3.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets top="2.0" />
+                     </padding>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </VBox>
+                  <VBox fx:id="btnVender" alignment="CENTER" layoutX="15.0" layoutY="81.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" scaleZ="0.5" spacing="1.0">
+                     <children>
+                        <Label alignment="CENTER" text="Vender" textFill="WHITE">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets top="2.0" />
+                     </padding>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets left="5.0" right="5.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </VBox>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <BorderPane fx:id="centerPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 2);" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </BorderPane.margin>
+      </BorderPane>
+   </center>
+   <top>
+      <BorderPane BorderPane.alignment="CENTER">
+         <right>
+            <HBox alignment="CENTER_RIGHT" spacing="5.0" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
+               </BorderPane.margin>
+            </HBox>
+         </right>
+         <left>
+            <ImageView fitHeight="100.0" fitWidth="450.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 2);" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@../images/logo.png" />
+               </image>
+               <BorderPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </BorderPane.margin>
+            </ImageView>
+         </left>
+         <bottom>
+            <Separator prefWidth="200.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER" />
+         </bottom>
+      </BorderPane>
+   </top>
+   <right>
+      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 2); -fx-border-radius: 40; -fx-background-color: white;" BorderPane.alignment="CENTER" />
+   </right>
+</BorderPane>
