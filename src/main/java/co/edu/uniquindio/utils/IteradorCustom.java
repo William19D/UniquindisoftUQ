@@ -1,6 +1,6 @@
-package co.edu.uniquindio.uniquindisoft.utils;
+package co.edu.uniquindio.utils;
 
-import co.edu.uniquindio.uniquindisoft.model.Nodo;
+import co.edu.uniquindio.model.Nodo;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;

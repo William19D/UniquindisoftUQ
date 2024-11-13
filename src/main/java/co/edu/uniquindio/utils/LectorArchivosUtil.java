@@ -1,4 +1,4 @@
-package co.edu.uniquindio.uniquindisoft.utils;
+package co.edu.uniquindio.utils;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;

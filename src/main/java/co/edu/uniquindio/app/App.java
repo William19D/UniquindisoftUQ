@@ -1,4 +1,4 @@
-package co.edu.uniquindio.uniquindisoft.app;
+package co.edu.uniquindio.app;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +11,7 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/uniquindisoft/fxmls/menu.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/fxmls/menu.fxml"));
             Parent root = loader.load();
 
             Scene scene = new Scene(root);

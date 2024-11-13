@@ -1,6 +1,6 @@
-package co.edu.uniquindio.uniquindisoft.utils;
+package co.edu.uniquindio.utils;
 
-import co.edu.uniquindio.uniquindisoft.model.Contributor;
+import co.edu.uniquindio.model.Contributor;
 
 public class ListaNegra {
     private LinkedListCustom<Contributor> listaNegra = new LinkedListCustom<>();

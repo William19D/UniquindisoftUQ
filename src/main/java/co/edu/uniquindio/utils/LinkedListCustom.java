@@ -1,7 +1,7 @@
-package co.edu.uniquindio.uniquindisoft.utils;
+package co.edu.uniquindio.utils;
 
 import java.util.Iterator;
-import co.edu.uniquindio.uniquindisoft.model.Nodo;
+import co.edu.uniquindio.model.Nodo;
 
 public class LinkedListCustom<T> implements Iterable<T> {
 

@@ -1,4 +1,4 @@
-package co.edu.uniquindio.uniquindisoft.controllers;
+package co.edu.uniquindio.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;

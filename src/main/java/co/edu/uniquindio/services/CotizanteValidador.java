@@ -1,9 +1,9 @@
-package co.edu.uniquindio.uniquindisoft.services;
+package co.edu.uniquindio.services;
 
 
-import co.edu.uniquindio.uniquindisoft.model.Contributor;
-import co.edu.uniquindio.uniquindisoft.model.Cotizante;
-import co.edu.uniquindio.uniquindisoft.utils.ContributorQueue;
+import co.edu.uniquindio.model.Contributor;
+import co.edu.uniquindio.model.Cotizante;
+import co.edu.uniquindio.utils.ContributorQueue;
 
 import java.util.List;
 import java.util.Objects;
