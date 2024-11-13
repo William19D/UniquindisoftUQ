@@ -1,4 +1,4 @@
-package co.edu.uniquindio.uniquindisoft.services;
+package co.edu.uniquindio.services;
 
 import java.util.HashMap;
 import java.util.Map;

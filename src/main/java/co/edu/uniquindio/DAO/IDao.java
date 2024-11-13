@@ -1,4 +1,4 @@
-package co.edu.uniquindio.uniquindisoft.DAO;
+package co.edu.uniquindio.DAO;
 
 import java.util.List;
 

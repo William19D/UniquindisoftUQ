@@ -15,7 +15,6 @@ public class DAOTest {
 
     @BeforeEach
     public void setUp() throws IOException {
-        // Asegúrate de que las rutas de los archivos CSV sean correctas y existan en el proyecto
         cotizanteDAO = new CotizanteDAO("src/main/resources/cotizantes.csv");
         contributorDAO = new ContributorDAO("src/main/resources/contribuidores.csv");
     }

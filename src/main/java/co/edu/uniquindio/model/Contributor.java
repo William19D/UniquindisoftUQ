@@ -1,4 +1,4 @@
-package co.edu.uniquindio.uniquindisoft.model;
+package co.edu.uniquindio.model;
 
 public class Contributor implements Comparable<Contributor> {
 

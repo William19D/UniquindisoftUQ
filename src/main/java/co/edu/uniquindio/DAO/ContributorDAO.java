@@ -1,6 +1,6 @@
-package co.edu.uniquindio.uniquindisoft.DAO;
+package co.edu.uniquindio.DAO;
 
-import co.edu.uniquindio.uniquindisoft.model.Contributor;
+import co.edu.uniquindio.model.Contributor;
 
 import java.io.IOException;
 
