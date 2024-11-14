@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="principalPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: white;" styleClass="fondo" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.controllers.MenuController">
+<BorderPane fx:id="principalPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: white;" styleClass="fondo" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.controllers.VentanaPrincipalController">
    <left>
       <VBox alignment="TOP_CENTER" prefHeight="380.0" prefWidth="80.0" style="-fx-background-color: #DB1228; -fx-background-radius: 40; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 2);" stylesheets="@../styles/fondo.css" BorderPane.alignment="CENTER">
          <BorderPane.margin>
