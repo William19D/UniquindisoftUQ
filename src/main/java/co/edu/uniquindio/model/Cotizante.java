@@ -3,25 +3,26 @@ package co.edu.uniquindio.model;
 public class Cotizante {
 
     String nombre;
-    String apellido;
+    String identificacion;
     Integer edad;
-    Double salario;
+    Boolean embargado;
+    String telefono;
 
     public Cotizante() {
         this.nombre = null;
-        this.apellido = null;
+        this.identificacion = null;
         this.edad = null;
-        this.salario = null;
+        this.edad= null;
+        this.telefono = null;
     }
 
-    public Cotizante(String nombre, String apellido, Integer edad, Double salario) {
-        super();
+    public Cotizante(String nombre, String identificacion, Integer edad, Boolean embargado, String salario) {
         this.nombre = nombre;
-        this.apellido = apellido;
+        this.identificacion = identificacion;
         this.edad = edad;
-        this.salario = salario;
+        this.embargado = embargado;
+        this.telefono = salario;
     }
-
 
     public String getNombre() {
         return nombre;
@@ -31,12 +32,12 @@ public class Cotizante {
         this.nombre = nombre;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getIdentificacion() {
+        return identificacion;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setIdentificacion(String identificacion) {
+        this.identificacion = identificacion;
     }
 
     public Integer getEdad() {
@@ -47,21 +48,31 @@ public class Cotizante {
         this.edad = edad;
     }
 
-    public Double getSalario() {
-        return salario;
+    public Boolean getEmbargado() {
+        return embargado;
     }
 
-    public void setSalario(Double salario) {
-        this.salario = salario;
+    public void setEmbargado(Boolean embargado) {
+        this.embargado = embargado;
     }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
 
     @Override
     public String toString() {
         return "Cotizante{" +
                 "nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
+                ", identificacion='" + identificacion + '\'' +
                 ", edad=" + edad +
-                ", salario=" + salario +
+                ", embargado=" + embargado +
+                ", salario='" + telefono + '\'' +
                 '}';
     }
 }
