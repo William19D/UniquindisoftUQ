@@ -5,8 +5,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import java.io.IOException;
 
 public class App extends Application {
+
+    private static Scene scene;
 
     @Override
     public void start(Stage primaryStage) {
@@ -25,5 +28,10 @@ public class App extends Application {
 
     public static void main(String[] args) {
         launch(args);
+    }
+
+    public static Parent loadFXML(String fxml) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/co/edu/uniquindio/fxmls/"+ fxml + ".fxml"));
+        return fxmlLoader.load();
     }
 }
