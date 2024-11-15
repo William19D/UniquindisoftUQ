@@ -14,7 +14,7 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/fxmls/menu.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/fxmls/VentanaPrincipal.fxml"));
             Parent root = loader.load();
 
             Scene scene = new Scene(root);
