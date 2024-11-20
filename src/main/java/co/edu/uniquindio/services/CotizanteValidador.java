@@ -61,7 +61,8 @@ public class CotizanteValidador {
                     cotizante.getNombre(),
                     cotizante.getApellido(),
                     cotizante.getEdad(),
-                    cotizante.getSalario()
+                    cotizante.getSalario(),
+                    cotizante.getEmbargado()
             );
             contributorQueue.addContributor(contributor);
         }

@@ -24,6 +24,8 @@ public class Contributor implements Comparable<Contributor> {
         this.embargado = embargado;
     }
 
+
+
     public String getNombre() {
         return nombre;
     }
