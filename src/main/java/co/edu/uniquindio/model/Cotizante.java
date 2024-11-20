@@ -6,22 +6,24 @@ public class Cotizante {
     String apellido;
     Integer edad;
     Double salario;
+    Boolean embargado;
 
     public Cotizante() {
         this.nombre = null;
         this.apellido = null;
         this.edad = null;
         this.salario = null;
+        this.embargado = null;
     }
 
-    public Cotizante(String nombre, String apellido, Integer edad, Double salario) {
+    public Cotizante(String nombre, String apellido, Integer edad, Double salario, Boolean embargado) {
         super();
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
         this.salario = salario;
+        this.embargado = embargado;
     }
-
 
     public String getNombre() {
         return nombre;
@@ -55,6 +57,14 @@ public class Cotizante {
         this.salario = salario;
     }
 
+    public Boolean getEmbargado() {
+        return embargado;
+    }
+
+    public void setEmbargado(Boolean embargado) {
+        this.embargado = embargado;
+    }
+
     @Override
     public String toString() {
         return "Cotizante{" +
@@ -62,6 +72,7 @@ public class Cotizante {
                 ", apellido='" + apellido + '\'' +
                 ", edad=" + edad +
                 ", salario=" + salario +
+                ", embargado=" + embargado +
                 '}';
     }
 }

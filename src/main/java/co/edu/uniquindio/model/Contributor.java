@@ -6,19 +6,22 @@ public class Contributor implements Comparable<Contributor> {
      String apellido;
      Integer edad;
      Double salario;
+     Boolean embargado;
 
     public Contributor() {
         this.nombre = null;
         this.apellido = null;
         this.edad = null;
         this.salario = null;
+        this.embargado = null;
     }
 
-    public Contributor(String nombre, String apellido, int edad, double salario) {
+    public Contributor(String nombre, String apellido, int edad, double salario, boolean embargado) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
         this.salario = salario;
+        this.embargado = embargado;
     }
 
     public String getNombre() {
@@ -37,6 +40,10 @@ public class Contributor implements Comparable<Contributor> {
         return salario;
     }
 
+    public boolean getEmbargado() {
+        return embargado;
+    }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -51,6 +58,10 @@ public class Contributor implements Comparable<Contributor> {
 
     public void setSalario(double salario) {
         this.salario = salario;
+    }
+
+    public void setEmbargado(boolean embargado) {
+        this.embargado = embargado;
     }
 
 
