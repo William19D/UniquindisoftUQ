@@ -1,37 +1,53 @@
 package co.edu.uniquindio.app;
 
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
+import co.edu.uniquindio.model.Contributor;
+import co.edu.uniquindio.services.SuperCache;
+import co.edu.uniquindio.utils.CsvUtils;
+
+import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
-public class App extends Application {
+public class App {
+    public static void main(String[] args) throws IOException {
+        SuperCache superCache = new SuperCache();
 
-    private static Scene scene;
+        // Ruta de los archivos CSV
+        String rutaSolicitudes = "ruta/del/directorio/con/solicitudes";
+        File directorio = new File(rutaSolicitudes);
 
-    @Override
-    public void start(Stage primaryStage) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/fxmls/VentanaPrincipal.fxml"));
-            Parent root = loader.load();
-
-            Scene scene = new Scene(root);
-            primaryStage.setTitle("Menu Principal");
-            primaryStage.setScene(scene);
-            primaryStage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (directorio.isDirectory()) {
+            for (File archivo : directorio.listFiles()) {
+                if (archivo.getName().endsWith(".csv")) {
+                    // Cargar solicitudes de traslado desde cada archivo
+                    superCache.cargarSolicitudesDesdeArchivo(archivo.getAbsolutePath());
+                }
+            }
         }
-    }
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+        // Extraer cotizantes desde las solicitudes cargadas en caché
+        superCache.extraerCotizantesEnCache();
 
-    public static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/co/edu/uniquindio/fxmls/"+ fxml + ".fxml"));
-        return fxmlLoader.load();
+        // Mostrar resultado
+        Map<String, Contributor> cotizantes = (Map<String, Contributor>) superCache.getCache("cotizantes");
+        System.out.println("Cotizantes cargados en caché: " + cotizantes.size());
+
+        // Opcional: mostrar detalles de los cotizantes cargados
+        cotizantes.values().forEach(System.out::println);
+
+        // Mapas de ciudades y fondos de pensiones (esto debe provenir de tus datos)
+        Map<String, String> ciudades = new HashMap<>();
+        Map<String, String> fondosPensiones = new HashMap<>();
+
+        // Ejemplo de cómo podrías cargar estos datos (esto puede provenir de archivos o base de datos)
+        ciudades.put("2015925972", "Medellín");
+        fondosPensiones.put("2015925972", "FondoA");
+
+        // Guardar cotizantes en archivo
+        String rutaSalida = "ruta/del/archivo/salida/cotizantes.csv";
+        CsvUtils.guardarCotizantesEnArchivo(rutaSalida, superCache, ciudades, fondosPensiones);
+
+        System.out.println("Cotizantes guardados en el archivo: " + rutaSalida);
     }
 }
