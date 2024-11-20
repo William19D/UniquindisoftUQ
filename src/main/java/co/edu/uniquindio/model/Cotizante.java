@@ -6,22 +6,22 @@ public class Cotizante {
     String identificacion;
     Integer edad;
     Boolean embargado;
-    String telefono;
+    Double salario;
 
     public Cotizante() {
         this.nombre = null;
         this.identificacion = null;
         this.edad = null;
         this.edad= null;
-        this.telefono = null;
+        this.salario = null;
     }
 
-    public Cotizante(String nombre, String identificacion, Integer edad, Boolean embargado, String salario) {
+    public Cotizante(String nombre, String identificacion, Integer edad, Boolean embargado, Double salario) {
         this.nombre = nombre;
         this.identificacion = identificacion;
         this.edad = edad;
         this.embargado = embargado;
-        this.telefono = salario;
+        this.salario = salario;
     }
 
     public String getNombre() {
@@ -56,12 +56,12 @@ public class Cotizante {
         this.embargado = embargado;
     }
 
-    public String getTelefono() {
-        return telefono;
+    public Double getSalario() {
+        return salario;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setSalario(Double salario) {
+        this.salario = salario;
     }
 
 
@@ -72,7 +72,7 @@ public class Cotizante {
                 ", identificacion='" + identificacion + '\'' +
                 ", edad=" + edad +
                 ", embargado=" + embargado +
-                ", salario='" + telefono + '\'' +
+                ", salario='" + salario + '\'' +
                 '}';
     }
 }
