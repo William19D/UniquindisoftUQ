@@ -28,7 +28,7 @@ public class DAOTest {
                     ", Identificación: " + cotizante.getIdentificacion() +
                     ", Edad: " + cotizante.getEdad() +
                     ", Embargado: " + cotizante.getEmbargado() +
-                    ", Teléfono: " + cotizante.getTelefono());
+                    ", Teléfono: " + cotizante.getSalario());
         }
     }
 
@@ -41,7 +41,7 @@ public class DAOTest {
                     ", Identificación: " + contribuidor.getIdentificacion() +
                     ", Edad: " + contribuidor.getEdad() +
                     ", Embargado: " + contribuidor.getEmbargado() +
-                    ", Teléfono: " + contribuidor.getTelefono());
+                    ", Teléfono: " + contribuidor.getSalario());
         }
     }
 }

@@ -19,10 +19,10 @@ public class CaracterizacionValidatorTest {
     @Test
     public void testProcesarContributors() {
         // Datos de prueba
-        Contributor contributor1 = new Contributor("Juan", "Pérez", 35, 2000.0, false);
-        Contributor contributor2 = new Contributor("María", "López", 40, 1500.0, true); // Embargado
-        Contributor contributor3 = new Contributor("Carlos", "Ramírez", 28, 1000.0, false); // Salario menor al mínimo
-        Contributor contributor4 = new Contributor("Ana", "Gómez", 30, 2500.0, false); // Aceptado
+        Contributor contributor1 = new Contributor("Juan", "124124", 35, false, 2000.0);
+        Contributor contributor2 = new Contributor("María", "124125", 40, true, 1500.0);
+        Contributor contributor3 = new Contributor("Carlos", "124126", 25, false, 1000.0);
+        Contributor contributor4 = new Contributor("Ana", "124127", 30, false, 10000.0);
 
         // Lista de prueba
         validator.procesarContributors(

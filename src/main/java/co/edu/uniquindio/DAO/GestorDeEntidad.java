@@ -1,6 +1,6 @@
-package co.edu.uniquindio.uniquindisoft.DAO;
+package co.edu.uniquindio.DAO;
 
-import co.edu.uniquindio.uniquindisoft.utils.LectorArchivosUtil;
+import co.edu.uniquindio.utils.LectorArchivosUtil;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
