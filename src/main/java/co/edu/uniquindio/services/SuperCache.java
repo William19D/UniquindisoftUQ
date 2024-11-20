@@ -14,6 +14,7 @@ public class SuperCache {
     private Map<String, Contributor> cache = new HashMap<>();
     private Map<String, Caracterizacion> caracterizacionMap = new HashMap<>();
     private Map<String, Caracterizacion> inhabilitarMap = new HashMap<>();
+    private Map<String, Caracterizacion> embargablesMap = new HashMap<>();
 
     public void addCache(String key, Contributor value) {
         cache.put(key, value);
@@ -78,6 +79,11 @@ public class SuperCache {
             if ("INHABILITAR".equalsIgnoreCase(caracterizacion.getEstado())) {
                 inhabilitarMap.put(key, caracterizacion);
             }
+
+            // Verificar si el estado es "EMBARGABLES" y agregar al mapa embargablesMap
+            if ("EMBARGABLES".equalsIgnoreCase(caracterizacion.getEstado())) {
+                embargablesMap.put(key, caracterizacion);
+            }
         }
     }
 
@@ -100,6 +106,10 @@ public class SuperCache {
 
     public Map<String, Caracterizacion> getInhabilitarCharacterizations() {
         return inhabilitarMap;
+    }
+
+    public Map<String, Caracterizacion> getEmbargablesCharacterizations() {
+        return embargablesMap;
     }
 
     public void asociarCotizantesConDatosBase(Map<String, String> ciudades, Map<String, String> fondosPensiones) {
