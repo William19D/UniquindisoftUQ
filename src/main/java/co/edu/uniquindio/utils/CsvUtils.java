@@ -12,10 +12,13 @@ public class CsvUtils {
 
     // Método para guardar los cotizantes en un archivo CSV
     public static void guardarCotizantesEnArchivo(String rutaArchivo, SuperCache superCache, Map<String, String> ciudades, Map<String, String> fondosPensiones) throws IOException {
-        // Recuperar la caché de cotizantes desde la instancia de SuperCache
-        Map<String, Contributor> cotizantes = (Map<String, Contributor>) superCache.getCache("cotizantes");
+        // Asociar cotizantes con datos base
+        superCache.asociarCotizantesConDatosBase(ciudades, fondosPensiones);
 
-        if (cotizantes == null) {
+        // Recuperar la caché de cotizantes desde la instancia de SuperCache
+        Map<String, Contributor> cotizantes = superCache.getAllContributors();
+
+        if (cotizantes == null || cotizantes.isEmpty()) {
             throw new IllegalArgumentException("No hay cotizantes en la caché para guardar.");
         }
 
@@ -25,8 +28,8 @@ public class CsvUtils {
 
             for (Contributor cotizante : cotizantes.values()) {
                 // Obtener la ciudad y fondo de pensiones del cotizante
-                String ciudad = ciudades.getOrDefault(cotizante.getIdentificacion(), "Ciudad_Desconocida");
-                String fondo = fondosPensiones.getOrDefault(cotizante.getIdentificacion(), "Fondo_Desconocido");
+                String ciudad = cotizante.getCiudad();
+                String fondo = cotizante.getFondoPensiones();
 
                 // Escribir los datos en el archivo CSV
                 String linea = String.join(";;",

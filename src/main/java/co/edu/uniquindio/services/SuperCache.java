@@ -9,16 +9,19 @@ import java.util.LinkedList;
 import java.util.Map;
 
 public class SuperCache {
-    private Map<String, Map<String, String>> cache= new HashMap<>();
+    private Map<String, Contributor> cache = new HashMap<>();
 
-    public void addCache(String key, Map<String, String> value) {
+    public void addCache(String key, Contributor value) {
         cache.put(key, value);
     }
 
-    public Map<String, String> getCache(String key) {
+    public Contributor getCache(String key) {
         return cache.get(key);
     }
 
+    public Map<String, Contributor> getAllContributors() {
+        return cache;
+    }
 
     public void cargarSolicitudesDesdeArchivo(String rutaArchivo) throws IOException {
         LinkedList<String[]> lineas = LectorArchivosUtil.leerTodasLasLineasCsv(rutaArchivo);
@@ -33,48 +36,21 @@ public class SuperCache {
             }
 
             String key = linea[1]; // La clave será la identificación
-            Map<String, String> solicitud = new HashMap<>();
-            solicitud.put("nombre", linea[0]);
-            solicitud.put("identificacion", linea[1]);
-            solicitud.put("edad", linea[2]);
-            solicitud.put("embargado", linea[3]);
-            solicitud.put("salario", linea[4]);
+            Contributor solicitud = new Contributor(
+                    linea[0], // nombre
+                    linea[1], // identificacion
+                    Integer.parseInt(linea[2]), // edad
+                    Boolean.parseBoolean(linea[3]), // embargado
+                    Double.parseDouble(linea[4]) // salario
+            );
 
             addCache(key, solicitud);
         }
     }
 
-
-    public void extraerCotizantesEnCache() {
-        Map<String, Contributor> cotizantesCache = new HashMap<>();
-
-        for (Map.Entry<String, Map<String, String>> entry : cache.entrySet()) {
-            Map<String, String> datosSolicitud = entry.getValue();
-
-            // Crear un Contributor desde los datos de la solicitud
-            Contributor cotizante = new Contributor(
-                    datosSolicitud.get("nombre"),
-                    datosSolicitud.get("identificacion"),
-                    Integer.parseInt(datosSolicitud.get("edad")),
-                    Boolean.parseBoolean(datosSolicitud.get("embargado")),
-                    Double.parseDouble(datosSolicitud.get("salario"))
-            );
-
-            // Cargar el cotizante en la nueva caché
-            cotizantesCache.put(cotizante.getIdentificacion(), cotizante);
-        }
-
-        // Guardar cotizantes en otra instancia de SuperCache (o en una caché dedicada)
-        cache.put("cotizantes", (Map) cotizantesCache);
-    }
-
-
     public void asociarCotizantesConDatosBase(Map<String, String> ciudades, Map<String, String> fondosPensiones) {
-        // Obtener los cotizantes desde la caché
-        Map<String, Contributor> cotizantes = (Map<String, Contributor>) cache.get("cotizantes");
-
         // Asociar los datos base a cada cotizante
-        for (Contributor cotizante : cotizantes.values()) {
+        for (Contributor cotizante : cache.values()) {
             String identificacion = cotizante.getIdentificacion();
 
             // Obtener la ciudad y el fondo de pensiones desde los mapas pasados
@@ -92,8 +68,4 @@ public class SuperCache {
             }
         }
     }
-
-
-
 }
-
