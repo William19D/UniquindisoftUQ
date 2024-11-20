@@ -81,7 +81,7 @@ public class SuperCache {
             }
 
             // Verificar si el estado es "EMBARGABLES" y agregar al mapa embargablesMap
-            if ("EMBARGABLES".equalsIgnoreCase(caracterizacion.getEstado())) {
+            if ("EMBARGAR".equalsIgnoreCase(caracterizacion.getEstado())) {
                 embargablesMap.put(key, caracterizacion);
             }
         }
