@@ -1,96 +1,112 @@
 package co.edu.uniquindio.controllers;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.control.Button;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
-import javafx.util.Duration;
-import javafx.fxml.FXML;
-import javafx.event.ActionEvent;
-import javafx.scene.input.MouseEvent;
-
 import java.io.IOException;
 import java.net.URL;
+import co.edu.uniquindio.app.*;
+import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.Node;
+import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 
 public class VentanaPrincipalController {
-    private boolean bloqueando = false;
 
     @FXML
-    private VBox sidebar;
-    @FXML
-    private ImageView iconoView;
-    @FXML
-    private Button botonBloqueo;
-    private Timeline expandir;
-    private Timeline contraer;
+    private ResourceBundle resources;
 
-    public void start(Stage stage) {
+    @FXML
+    private URL location;
+
+    @FXML
+    private BorderPane principalPane;
+
+    @FXML
+    private VBox btnCotizantes;
+
+    @FXML
+    private VBox btnEmbargados;
+
+    @FXML
+    private VBox btnAgregados;
+
+    @FXML
+    private BorderPane centerPane;
+
+    @FXML
+    private Button btnAyuda;
+
+    @FXML
+    void irAgregadosEvent(MouseEvent event) {
+        cambiarVentana("VentanaAgregados");
+        principalPane.setRight(null);
+        centerPane.setBottom(null);
+    }
+
+    @FXML
+    void irAyudaEvent(ActionEvent event) {
+    }
+
+    @FXML
+    void irCotizantesEvent(MouseEvent event) {
+        cambiarVentana("VentanaCotizantes");
+        principalPane.setRight(null);
+        centerPane.setBottom(null);
+
+    }
+
+    @FXML
+    void irEmbargadosEvent(MouseEvent event) {
+        cambiarVentana("VentanaEmbargados");
+        principalPane.setRight(null);
+        centerPane.setBottom(null);
+
+    }
+
+    @FXML
+    void initialize() {
+
+    }
+
+    public void cambiarVentana(String fxmlname) {
         try {
-            URL fxmlLocation = getClass().getResource("/fxmls/PantallaPrincipal.fxml");
-            if (fxmlLocation == null) {
-                throw new IOException("FXML file not found.");
-            }
-
-            FXMLLoader loader = new FXMLLoader(fxmlLocation);
-            loader.setController(this);
-            Parent root = loader.load();
-
-            URL iconLocation = getClass().getResource("/co/edu/uniquindio/resources/images/icon.png");
-            if (iconLocation == null) {
-                throw new IOException("Icon image not found.");
-            }
-
-            Image icon = new Image(iconLocation.toString());
-            stage.getIcons().add(icon);
-
-            Scene scene = new Scene(root, 800, 600);
-            scene.getStylesheets().add(getClass().getResource("/co/edu/uniquindio/resources/styles/estilos.css").toExternalForm());
-            stage.setTitle("UI!");
-            stage.setScene(scene);
-            stage.show();
-
-            initialize();
+            Node nodo = App.loadFXML(fxmlname);
+            setCenter(nodo);
         } catch (IOException e) {
-            System.err.println("Failed to load FXML file or icon image.");
             e.printStackTrace();
         }
     }
 
-    @FXML
-    public void initialize() {
-        expandir = new Timeline(
-                new KeyFrame(Duration.millis(300), new KeyValue(sidebar.prefWidthProperty(), 200))
-        );
-
-        contraer = new Timeline(
-                new KeyFrame(Duration.millis(300), new KeyValue(sidebar.prefWidthProperty(), 0))
-        );
-
-        sidebar.getStyleClass().add("sidebar");
-        botonBloqueo.getStyleClass().add("button-icon");
-
-        sidebar.setOnMouseEntered(event -> expandir.play());
-        sidebar.setOnMouseExited(event -> contraer.play());
-    }
-
-    @FXML
-    void bloquearAnima(ActionEvent event) {
-        bloqueando = !bloqueando;
-        if (bloqueando) {
-            expandir.stop();
-            contraer.stop();
-            sidebar.setOnMouseEntered(null);
-            sidebar.setOnMouseExited(null);
-        } else {
-            sidebar.setOnMouseEntered(e -> expandir.play());
-            sidebar.setOnMouseExited(e -> contraer.play());
+    public void cambiarRight(String fxmlname) {
+        try {
+            Node nodo = App.loadFXML(fxmlname);
+            setRight(nodo);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
+
+    public void cambiarDown(String fxmlname) {
+        try {
+            Node nodo = App.loadFXML(fxmlname);
+            setDown(nodo);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void setCenter(Node node) {
+        centerPane.setCenter(node);
+    }
+
+    public void setRight(Node node) {
+        principalPane.setRight(node);
+    }
+
+    public void setDown(Node node) {
+        centerPane.setBottom(node);
+    }
 }
+

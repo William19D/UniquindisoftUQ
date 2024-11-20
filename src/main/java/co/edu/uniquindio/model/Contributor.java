@@ -2,74 +2,84 @@ package co.edu.uniquindio.model;
 
 public class Contributor implements Comparable<Contributor> {
 
-     String nombre;
-     String apellido;
-     Integer edad;
-     Double salario;
-     Boolean embargado;
+    String nombre;
+    String identificacion;
+    Integer edad;
+    Boolean embargado;
+    String telefono;
 
     public Contributor() {
         this.nombre = null;
-        this.apellido = null;
+        this.identificacion = null;
         this.edad = null;
-        this.salario = null;
-        this.embargado = null;
+        this.edad= null;
+        this.telefono = null;
     }
 
-    public Contributor(String nombre, String apellido, int edad, double salario, boolean embargado) {
+    public Contributor(String nombre, String identificacion, Integer edad, Boolean embargado, String salario) {
         this.nombre = nombre;
-        this.apellido = apellido;
+        this.identificacion = identificacion;
         this.edad = edad;
-        this.salario = salario;
         this.embargado = embargado;
+        this.telefono = salario;
     }
-
-
 
     public String getNombre() {
         return nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public int getEdad() {
-        return edad;
-    }
-
-    public double getSalario() {
-        return salario;
-    }
-
-    public boolean getEmbargado() {
-        return embargado;
     }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public String getIdentificacion() {
+        return identificacion;
     }
 
-    public void setEdad(int edad) {
+    public void setIdentificacion(String identificacion) {
+        this.identificacion = identificacion;
+    }
+
+    public Integer getEdad() {
+        return edad;
+    }
+
+    public void setEdad(Integer edad) {
         this.edad = edad;
     }
 
-    public void setSalario(double salario) {
-        this.salario = salario;
+    public Boolean getEmbargado() {
+        return embargado;
     }
 
-    public void setEmbargado(boolean embargado) {
+    public void setEmbargado(Boolean embargado) {
         this.embargado = embargado;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Cotizante{" +
+                "nombre='" + nombre + '\'' +
+                ", identificacion='" + identificacion + '\'' +
+                ", edad=" + edad +
+                ", embargado=" + embargado +
+                ", salario='" + telefono + '\'' +
+                '}';
     }
 
 
     @Override
     public int compareTo(Contributor o) {
-        return Double.compare(this.salario, o.salario);
+        return Double.compare(this.edad, o.edad);
     }
 }
 

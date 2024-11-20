@@ -7,7 +7,7 @@ import java.util.List;
 public abstract class ADao<ClaseEntidad, TipoId> implements IDao<ClaseEntidad, TipoId> {
 
     private Class<ClaseEntidad> claseEntidad;
-    protected GestorDeEntidad gestorDeEntidad;
+    protected co.edu.uniquindio.DAO.GestorDeEntidad gestorDeEntidad;
 
     @SuppressWarnings("unchecked")
     public ADao(String rutaArchivo) throws IOException {
@@ -16,7 +16,7 @@ public abstract class ADao<ClaseEntidad, TipoId> implements IDao<ClaseEntidad, T
                 (ParameterizedType) getClass().getGenericSuperclass()
         ).getActualTypeArguments()[0];
 
-        this.gestorDeEntidad = new GestorDeEntidad(rutaArchivo);
+        this.gestorDeEntidad = new co.edu.uniquindio.DAO.GestorDeEntidad(rutaArchivo);
     }
 
     @Override

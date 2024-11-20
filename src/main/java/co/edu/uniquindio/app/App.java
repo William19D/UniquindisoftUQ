@@ -1,29 +1,37 @@
 package co.edu.uniquindio.app;
 
-import co.edu.uniquindio.model.Contributor;
-import co.edu.uniquindio.utils.CaracterizacionValidator;
-import java.util.List;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import java.io.IOException;
 
-public class App {
+public class App extends Application {
+
+    private static Scene scene;
+
+    @Override
+    public void start(Stage primaryStage) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/fxmls/VentanaPrincipal.fxml"));
+            Parent root = loader.load();
+
+            Scene scene = new Scene(root);
+            primaryStage.setTitle("Menu Principal");
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) {
-        CaracterizacionValidator validator = new CaracterizacionValidator();
+        launch(args);
+    }
 
-        // Ejemplo de lista de contribuyentes
-        List<Contributor> contributors = List.of(
-                new Contributor("Juan", "Pérez", 35, 2000.0, false),
-                new Contributor("María", "López", 40, 1500.0, true),
-                new Contributor("Carlos", "Ramírez", 28, 1000.0, false),
-                new Contributor("Ana", "Gómez", 30, 2500.0, false)
-        );
-
-        // Procesar contribuyentes
-        validator.procesarContributors(contributors, 1200.0);
-
-        // Mostrar resultados
-        System.out.println("Aceptados: " + validator.getListaAceptados().getListaNegra().size());
-        System.out.println("Embargados: " + validator.getListaEmbargados().getListaNegra().size());
-        System.out.println("Rechazados: " + validator.getListaRechazados().getListaNegra().size());
+    public static Parent loadFXML(String fxml) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/co/edu/uniquindio/fxmls/"+ fxml + ".fxml"));
+        return fxmlLoader.load();
     }
 }
-
-

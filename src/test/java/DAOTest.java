@@ -15,32 +15,33 @@ public class DAOTest {
 
     @BeforeEach
     public void setUp() throws IOException {
-        // Asegúrate de que las rutas de los archivos CSV sean correctas y existan en el proyecto
-        cotizanteDAO = new CotizanteDAO("src/main/resources/cotizantes.csv");
-        contributorDAO = new ContributorDAO("src/main/resources/contribuidores.csv");
+        cotizanteDAO = new CotizanteDAO("src/main/resources/co/edu/uniquindio/csv/cotizantes.csv");
+        contributorDAO = new ContributorDAO("src/main/resources/co/edu/uniquindio/csv/contribuidores.csv");
     }
 
     @Test
     public void printCSVCotizantes() {
         List<Cotizante> cotizantes = cotizanteDAO.obtenerTodos();
         System.out.println("Contenido del archivo CSV Cotizantes:");
-        for (Cotizante cotizante : cotizantes) {
+        for (Cotizante cotizante :cotizantes) {
             System.out.println("Nombre: " + cotizante.getNombre() +
-                    ", Apellido: " + cotizante.getApellido() +
+                    ", Identificación: " + cotizante.getIdentificacion() +
                     ", Edad: " + cotizante.getEdad() +
-                    ", Salario: " + cotizante.getSalario());
+                    ", Embargado: " + cotizante.getEmbargado() +
+                    ", Teléfono: " + cotizante.getTelefono());
         }
     }
 
     @Test
     public void printCSVContribuidores() {
-        List<Contributor> contribuidores = contributorDAO.obtenerTodos();
+        List<Contributor> contributors = contributorDAO.obtenerTodos();
         System.out.println("Contenido del archivo CSV Contribuidores:");
-        for (Contributor contributor : contribuidores) {
-            System.out.println("Nombre: " + contributor.getNombre() +
-                    ", Apellido: " + contributor.getApellido() +
-                    ", Edad: " + contributor.getEdad() +
-                    ", Salario: " + contributor.getSalario());
+        for (Contributor contribuidor : contributors) {
+            System.out.println("Nombre: " + contribuidor.getNombre() +
+                    ", Identificación: " + contribuidor.getIdentificacion() +
+                    ", Edad: " + contribuidor.getEdad() +
+                    ", Embargado: " + contribuidor.getEmbargado() +
+                    ", Teléfono: " + contribuidor.getTelefono());
         }
     }
 }
