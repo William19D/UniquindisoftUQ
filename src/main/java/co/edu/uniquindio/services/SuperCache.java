@@ -75,7 +75,7 @@ public class SuperCache {
         }
     }
 
-    public void cargarDatosDesdeDirectorios(String... directorios) throws IOException {
+    public void cargarDatosDesdeDirectorios(String [] directorios) throws IOException {
         for (String directorio : directorios) {
             File dir = new File(directorio);
             if (dir.isDirectory()) {
