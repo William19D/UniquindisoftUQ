@@ -13,6 +13,7 @@ import java.util.Map;
 public class SuperCache {
     private Map<String, Contributor> cache = new HashMap<>();
     private Map<String, Caracterizacion> caracterizacionMap = new HashMap<>();
+    private Map<String, Caracterizacion> inhabilitarMap = new HashMap<>();
 
     public void addCache(String key, Contributor value) {
         cache.put(key, value);
@@ -72,10 +73,15 @@ public class SuperCache {
             );
 
             caracterizacionMap.put(key, caracterizacion);
+
+            // Verificar si el estado es "INHABILITAR" y agregar al mapa inhabilitarMap
+            if ("INHABILITAR".equalsIgnoreCase(caracterizacion.getEstado())) {
+                inhabilitarMap.put(key, caracterizacion);
+            }
         }
     }
 
-    public void cargarDatosDesdeDirectorios(String [] directorios) throws IOException {
+    public void cargarDatosDesdeDirectorios(String[] directorios) throws IOException {
         for (String directorio : directorios) {
             File dir = new File(directorio);
             if (dir.isDirectory()) {
@@ -90,6 +96,10 @@ public class SuperCache {
 
     public Map<String, Caracterizacion> getAllCharacterizations() {
         return caracterizacionMap;
+    }
+
+    public Map<String, Caracterizacion> getInhabilitarCharacterizations() {
+        return inhabilitarMap;
     }
 
     public void asociarCotizantesConDatosBase(Map<String, String> ciudades, Map<String, String> fondosPensiones) {
