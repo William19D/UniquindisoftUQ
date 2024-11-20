@@ -19,9 +19,9 @@ public class CotizanteValidador {
     public List<String> validateAll(Cotizante cotizante) {
         return List.of(
                 validarNombre(cotizante.getNombre()),
-                validarApellido(cotizante.getApellido()),
+                validarApellido(cotizante.getIdentificacion()),
                 validarEdad(cotizante.getEdad()),
-                validarSalario(cotizante.getSalario())
+                validarSalario(cotizante.getTelefono())
         );
     }
 
@@ -46,9 +46,9 @@ public class CotizanteValidador {
         return null;
     }
 
-    public String validarSalario(double salario) {
-        if (salario < 0) {
-            return "El salario no puede ser negativo";
+    public String validarSalario(String telefono) {
+        if (telefono.isEmpty()) {
+            return "El telefono no puede estar vacío";
         }
         return null;
     }
@@ -59,9 +59,10 @@ public class CotizanteValidador {
         if (isValid) {
             Contributor contributor = new Contributor(
                     cotizante.getNombre(),
-                    cotizante.getApellido(),
+                    cotizante.getIdentificacion(),
                     cotizante.getEdad(),
-                    cotizante.getSalario()
+                    cotizante.getEmbargado(),
+                    cotizante.getTelefono()
             );
             contributorQueue.addContributor(contributor);
         }

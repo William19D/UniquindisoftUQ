@@ -1,0 +1,45 @@
+
+
+/* Estilo para la tabla */
+.table-view {
+    -fx-background-color: white;
+   	-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 2);
+   	-fx-border-radius: 40px;
+}
+
+/* Estilo para las celdas */
+.table-cell {
+    -fx-text-fill: #333333;
+    -fx-font-size: 14px;
+    -fx-alignment: center-left;
+}
+
+/* Estilo para las celdas seleccionadas */
+.table-row-cell:filled:selected {
+    -fx-background-color: #3399ff;
+    -fx-text-fill: white;
+}
+
+/* Estilo para el encabezado de la tabla */
+.table-view .column-header-background {
+    -fx-background-color:  white;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-background-color: #D0DFE4;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+}
+
+.table-view.column-header.label {
+    -fx-alignment: center;
+    -fx-text-fill: red;
+}
+
+/* Estilo para las líneas de la tabla */
+.table-row-cell {
+    -fx-border-color: #dddddd;
+    -fx-border-width: 0.5px;
+    -fx-border-insets: 0;
+    -fx-border-style: solid;
+}
