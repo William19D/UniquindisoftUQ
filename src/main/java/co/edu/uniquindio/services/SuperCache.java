@@ -1,8 +1,10 @@
 package co.edu.uniquindio.services;
 
+import co.edu.uniquindio.model.Caracterizacion;
 import co.edu.uniquindio.model.Contributor;
 import co.edu.uniquindio.utils.LectorArchivosUtil;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -10,6 +12,7 @@ import java.util.Map;
 
 public class SuperCache {
     private Map<String, Contributor> cache = new HashMap<>();
+    private Map<String, Caracterizacion> caracterizacionMap = new HashMap<>();
 
     public void addCache(String key, Contributor value) {
         cache.put(key, value);
@@ -46,6 +49,47 @@ public class SuperCache {
 
             addCache(key, solicitud);
         }
+    }
+
+    public void cargarCaracterizacionesDesdeArchivo(String rutaArchivo) throws IOException {
+        LinkedList<String[]> lineas = LectorArchivosUtil.leerTodasLasLineasCsv(rutaArchivo);
+
+        if (lineas.isEmpty()) {
+            throw new IllegalArgumentException("El archivo está vacío: " + rutaArchivo);
+        }
+
+        for (String[] linea : lineas) {
+            if (linea.length != 4) { // Validamos la estructura
+                throw new IllegalArgumentException("Archivo inválido en " + rutaArchivo + ". Línea: " + String.join(";;", linea));
+            }
+
+            String key = linea[1]; // La clave será la identificación
+            Caracterizacion caracterizacion = new Caracterizacion(
+                    linea[0], // tipoIdentificacion
+                    linea[1], // identificacion
+                    linea[2], // nombre
+                    linea[3]  // estado
+            );
+
+            caracterizacionMap.put(key, caracterizacion);
+        }
+    }
+
+    public void cargarDatosDesdeDirectorios(String... directorios) throws IOException {
+        for (String directorio : directorios) {
+            File dir = new File(directorio);
+            if (dir.isDirectory()) {
+                for (File archivo : dir.listFiles()) {
+                    if (archivo.getName().endsWith(".csv")) {
+                        cargarCaracterizacionesDesdeArchivo(archivo.getAbsolutePath());
+                    }
+                }
+            }
+        }
+    }
+
+    public Map<String, Caracterizacion> getAllCharacterizations() {
+        return caracterizacionMap;
     }
 
     public void asociarCotizantesConDatosBase(Map<String, String> ciudades, Map<String, String> fondosPensiones) {
